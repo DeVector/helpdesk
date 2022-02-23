@@ -18,8 +18,8 @@ public class Tecnico extends Pessoa{
         addPerfis(Perfil.CLIENTE);
     }
 
-    public Tecnico(int id, String name, String cpf, String email, String password) {
-        super(id, name, cpf, email, password);
+    public Tecnico(String name, String cpf, String email, String password) {
+        super(name, cpf, email, password);
         addPerfis(Perfil.CLIENTE);
     }
 
