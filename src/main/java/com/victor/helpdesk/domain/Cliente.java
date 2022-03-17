@@ -2,11 +2,16 @@ package com.victor.helpdesk.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.victor.helpdesk.domain.enums.Perfil;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
+
+@Data
+@AllArgsConstructor
 
 @Entity
 public class Cliente extends Pessoa {
