@@ -1,6 +1,7 @@
 package com.victor.helpdesk.exception;
 
 import com.victor.helpdesk.util.MessagesUtils;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -42,7 +43,7 @@ public class ExceptionsHandlers {
     protected ResponseEntity<ExceptionResponse> dataIntegrityViolationException(DataIntegrityViolationException e,
                                                                                 HttpServletRequest request){
         ExceptionResponse exReponse = new ExceptionResponse(HttpStatus.BAD_REQUEST.value(),
-                e.getMessage(), MessagesUtils.FIELD_VALIDATION, request.getRequestURI());
+                MessagesUtils.NOT_DELETE_DATABASE, MessagesUtils.FIELD_VALIDATION, request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exReponse);
     }
 }

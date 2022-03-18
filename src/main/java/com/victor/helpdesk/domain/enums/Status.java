@@ -19,7 +19,7 @@ public enum Status {
         return descrig;
     }
 
-    private static Status toEnum(Integer cod){
+    public static Status toEnum(Integer cod){
         if (cod == null){
             return null;
         }

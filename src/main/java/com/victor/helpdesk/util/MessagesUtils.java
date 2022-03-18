@@ -21,4 +21,6 @@ public abstract class MessagesUtils {
     public static final String NOT_FOUND_TECHNICIAN = "Not found technician!";
 
     public static final String NOT_FOUND_CLIENT = "Not found client!";
+
+    public static final String NOT_FOUND_CALL = "Chamado não encontrado!";
 }

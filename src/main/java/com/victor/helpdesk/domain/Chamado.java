@@ -3,23 +3,30 @@ package com.victor.helpdesk.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.victor.helpdesk.domain.enums.Prioridade;
 import com.victor.helpdesk.domain.enums.Status;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Data
+@AllArgsConstructor
+@EqualsAndHashCode
+
 @Entity
-public class Chamado implements Serializable {
+public class Chamado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate dtAbertura = LocalDate.now();
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate dtFechamento;
 
     private Prioridade prioridade;
@@ -49,22 +56,6 @@ public class Chamado implements Serializable {
         this.cliente = cliente;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public LocalDate getDtAbertura() {
-        return dtAbertura;
-    }
-
-    public void setDtAbertura(LocalDate dtAbertura) {
-        this.dtAbertura = dtAbertura;
-    }
-
     public LocalDate getDtFechamento() {
         return dtFechamento;
     }
@@ -73,64 +64,4 @@ public class Chamado implements Serializable {
         this.dtFechamento = dtFechamento;
     }
 
-    public Prioridade getPrioridade() {
-        return prioridade;
-    }
-
-    public void setPrioridade(Prioridade prioridade) {
-        this.prioridade = prioridade;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getObservacoes() {
-        return observacoes;
-    }
-
-    public void setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
-    }
-
-    public Tecnico getTecnico() {
-        return tecnico;
-    }
-
-    public void setTecnico(Tecnico tecnico) {
-        this.tecnico = tecnico;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Chamado chamado = (Chamado) o;
-        return Objects.equals(id, chamado.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }
