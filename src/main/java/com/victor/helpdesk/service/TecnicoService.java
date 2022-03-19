@@ -9,6 +9,7 @@ import com.victor.helpdesk.repository.PessoaRepository;
 import com.victor.helpdesk.repository.TecnicoRepository;
 import com.victor.helpdesk.util.MessagesUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,6 +25,9 @@ public class TecnicoService {
     @Autowired
     private PessoaRepository pessoaRepository;
 
+    @Autowired
+    private BCryptPasswordEncoder encoder;
+
     @Transactional(readOnly = true)
     public Tecnico findById(Integer id){
         Optional<Tecnico> obj = repository.findById(id);
@@ -38,6 +42,7 @@ public class TecnicoService {
     @Transactional
     public Tecnico create(TecnicoDTO objDto) {
         objDto.setId(null);
+        objDto.setPassword(encoder.encode(objDto.getPassword()));
         validarEmailAndCpf(objDto);
         Tecnico newObj = new Tecnico(objDto);
         return repository.save(newObj);
