@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.victor.helpdesk.domain.Tecnico;
 import com.victor.helpdesk.domain.enums.Perfil;
 import lombok.Data;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -19,6 +20,7 @@ public class TecnicoDTO {
     @NotNull(message = "O campo NOME é requerido")
     protected String name;
     @NotNull(message = "O campo CPF é requerido")
+    @CPF
     protected String cpf;
     @NotNull(message = "O campo EMAIL é requerido")
     protected String email;
