@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+//Forms module
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
 //Angular Material
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -29,6 +32,9 @@ import { MatCardModule } from '@angular/material/card';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    //Forms module
+    FormsModule,
+    ReactiveFormsModule,
     //Angular Material
     MatFormFieldModule,
     MatPaginatorModule,
