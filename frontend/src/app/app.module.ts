@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Forms module
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
 
 //Angular Material
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -45,6 +46,7 @@ import { ToastrModule} from 'ngx-toastr';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     //Forms module
     FormsModule,
     ReactiveFormsModule,
