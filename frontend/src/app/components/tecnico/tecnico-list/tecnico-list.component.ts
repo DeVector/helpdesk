@@ -13,7 +13,7 @@ export class TecnicoListComponent implements OnInit {
 
   ELEMENT_DATA: Tecnico[] = [];
 
-  displayedColumns: string[] = ['id', 'name', 'cpf', 'email'];
+  displayedColumns: string[] = ['id', 'name', 'cpf', 'email', 'acoes'];
   dataSource = new MatTableDataSource<Tecnico>(this.ELEMENT_DATA);
 
 
