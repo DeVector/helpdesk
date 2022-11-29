@@ -55,6 +55,10 @@ public class TecnicoService {
         dto.setId(id);
         Tecnico oldDto = findById(id);
 
+        if (!(dto.getPassword().equals(oldDto.getPassword()))) {
+            dto.setPassword(encoder.encode(dto.getPassword()));
+        }
+
         validarEmailAndCpf(dto);
 
         oldDto = new Tecnico(dto);

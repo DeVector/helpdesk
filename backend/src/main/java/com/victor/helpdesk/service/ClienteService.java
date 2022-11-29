@@ -53,6 +53,10 @@ public class ClienteService {
         dto.setId(id);
         Cliente oldDto = findById(id);
 
+        if (!(dto.getPassword().equals(oldDto.getPassword()))) {
+            dto.setPassword(encoder.encode(dto.getPassword()));
+        }
+
         validarEmailAndCpf(dto);
 
         oldDto = new Cliente(dto);
