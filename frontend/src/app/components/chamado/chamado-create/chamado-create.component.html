@@ -1,1 +1,61 @@
-<p>chamado-create works!</p>
+<div class="container mat-elevation-z8">
+    <h1 class="full-width">Criando um chamado</h1>
+    <img class="full-width" src="assets/img/chamado-create.svg" alt="Chamado image">
+
+    <form class="form">
+        <mat-form-field class="full-width" appearence="outline">
+            <mat-label>Titulo do chamado</mat-label>
+            <input matInput placeholder="Ex. Trocar tela notebook">
+        </mat-form-field>
+    </form>
+
+    <div class="status-prioridade">
+        <mat-form-field appearance="outline">
+            <mat-label>Selecione um status</mat-label>
+            <mat-select>
+                <mat-option value="1">ANDAMENTO</mat-option>
+                <mat-option value="0">ABERTO</mat-option>
+                <mat-option value="2">ENCERRADO</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Selecione uma prioridade</mat-label>
+            <mat-select>
+                <mat-option value="2">BAIXA</mat-option>
+                <mat-option value="1">MÉDIA</mat-option>
+                <mat-option value="0">ALTA</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="tecnico">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Selecione um técnico</mat-label>
+            <mat-select>
+                <mat-option value="0">Luiz Bezerra</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="cliente">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Selecione um cliente</mat-label>
+            <mat-select>
+                <mat-option value="0">Victor Diniz</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <form class="form">
+        <mat-form-field class="full-width" appearence="outline" >
+            <mat-label>Deixe a observação</mat-label>
+            <textarea class="descricao" matInput placeholder="Ex. Trocar tela de notebook trincada"></textarea>
+        </mat-form-field>
+    </form>
+
+    <button class="full-width mat-elavation-z4" mat-raised-button color="primary">CRIAR</button>
+    <button class="full-width mat-elavation-z4" mat-stroked-button color="warn">Cancelar</button>
+
+    <p class="full-width">Desenvolvido por Victor Oliveira</p>
+</div>
