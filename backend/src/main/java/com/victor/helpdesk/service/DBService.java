@@ -33,17 +33,27 @@ public class DBService {
     public void instaciaDB(){
         Tecnico tecnic01 = new Tecnico("Luiz Bezerra", "52628197537", "luiz@mail.com", encoder.encode("123"));
         tecnic01.addPerfis(Perfil.ADMIN);
+        tecnic01.addPerfis(Perfil.TECNICO);
         Tecnico tc2 = new Tecnico("Tim Benners", "38714535793", "tim@mail.com", encoder.encode("123"));
+        tc2.addPerfis(Perfil.TECNICO);
         Tecnico tc3 = new Tecnico("Donald Trump", "85257362520", "donald@mail.com", encoder.encode("123"));
+        tc3.addPerfis(Perfil.TECNICO);
         Tecnico tc4 = new Tecnico("Emilio Surita", "63232548164", "emilio@mail.com", encoder.encode("123"));
+        tc4.addPerfis(Perfil.TECNICO);
         Tecnico tc5 = new Tecnico("Loren Diniz", "37661639572", "loren@mail.com", encoder.encode("123"));
         tc5.addPerfis(Perfil.ADMIN);
+        tc5.addPerfis(Perfil.TECNICO);
 
         Cliente cliente01 = new Cliente("Thomas Oliveira", "02987122454", "thomas@mail.com", encoder.encode("123"));
+        cliente01.addPerfis(Perfil.CLIENTE);
         Cliente cl2 = new Cliente("Tobby Diniz", "11587400260", "tobby@mail.com", encoder.encode("123"));
+        cl2.addPerfis(Perfil.CLIENTE);
         Cliente cl3 = new Cliente("Alan Torvalds", "77539744839", "alan@mail.com", encoder.encode("123"));
+        cl3.addPerfis(Perfil.CLIENTE);
         Cliente cl4 = new Cliente("Wanessa Souza", "06652693070", "wanessa@mail.com", encoder.encode("123"));
+        cl4.addPerfis(Perfil.CLIENTE);
         Cliente cl5 = new Cliente("Antonio de Padua", "26105124651", "antonio@mail.com", encoder.encode("123"));
+        cl5.addPerfis(Perfil.CLIENTE);
 
         Chamado c01 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO, "Chamado 01", "Primeiro chamado", tecnic01, cliente01);
         Chamado ch2 = new Chamado(null, Prioridade.BAIXA, Status.ANDAMENTO, "Display", "Trocar o display do Notebook", tc2, cl3);
