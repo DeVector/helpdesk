@@ -16,8 +16,17 @@ export class ChamadoService {
   findAll(): Observable<Chamados[]> {
     return this.http.get<Chamados[]>(`${API_CONFIG.baseUrl}/chamados`);
   }
-
+  
+  findById(id: any): Observable<Chamados> {
+    return this.http.get<Chamados>(`${API_CONFIG.baseUrl}/chamados/${id}`);
+  }
+  
   create(chamado: Chamados): Observable<Chamados> {
     return this.http.post<Chamados>(`${API_CONFIG.baseUrl}/chamados`, chamado);
   }
+
+  update(chamado: Chamados): Observable<Chamados> { 
+    return this.http.put<Chamados>(`${API_CONFIG.baseUrl}/chamados/${chamado.id}`, chamado)
+   }
+
 }

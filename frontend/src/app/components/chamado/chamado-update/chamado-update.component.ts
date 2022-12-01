@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ChamadoService } from 'src/app/services/chamado.service';
 import { ClienteService } from 'src/app/services/cliente.service';
@@ -43,21 +43,33 @@ export class ChamadoUpdateComponent implements OnInit {
     private clienteService: ClienteService,
     private toastrService: ToastrService,
     private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
+    this.chamado.id = this.route.snapshot.paramMap.get('id');
+    this.findById();
     this.findAllClinetes();
     this.findAllTecnicos();
    }
 
-   create(): void {
-    this.chamadoService.create(this.chamado).subscribe(resposta => {
-      this.toastrService.success('Chamado criado com sucesso', 'Novo Chamado');
+   findById(): void {
+    this.chamadoService.findById(this.chamado.id).subscribe(resposta => {
+      this.chamado = resposta;
+    }, ex => {
+      console.log(ex);
+    })
+   }
+
+   update(): void {
+    this.chamadoService.update(this.chamado).subscribe(resposta => {
+      this.toastrService.success('Chamado atualizado com sucesso', 'Atualizar Chamado');
       this.router.navigate(['chamados']);
     }, ex => {
       this.toastrService.error(ex.error.error);
     })
    }
+
 
   findAllClinetes(): void {
     this.clienteService.findAll().subscribe(resposta => {
@@ -69,6 +81,26 @@ export class ChamadoUpdateComponent implements OnInit {
     this.tecnicoService.findAll().subscribe(resposta => {
       this.tecnicos = resposta;
     });
+  }
+
+  returnStatus(status: any){
+    if (status == '0'){
+      return 'ABERTO';
+    } else if (status == '1') {
+      return 'ANDAMENTO';
+    } else {
+      return 'ENCERRADO';
+    }
+  }
+
+  returnPrioridade(prioridade: any) {
+    if( prioridade == '0'){
+      return 'ALTA';
+    } else if (prioridade == '1'){
+      return 'MEDIA';
+    } else {
+      return 'BAIXA';
+    }
   }
 
   validarCampos(): boolean {
