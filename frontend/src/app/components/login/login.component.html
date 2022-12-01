@@ -6,7 +6,7 @@
 
         <img src="assets/img/login-image.svg" alt="Programador Junior">
 
-        <mat-form-field class="full-width" apperance="fill">
+        <mat-form-field class="full-width" appearance="outline">
             <mat-label>Email</mat-label>
             <input 
             [formControl]="email"
@@ -15,9 +15,10 @@
             name="email" 
             matInput 
             placeholder="Fulano@mail.com">
+            <mat-icon matSuffix>email</mat-icon>
         </mat-form-field>
 
-        <mat-form-field class="full-width" apperance="fill">
+        <mat-form-field class="full-width" appearance="outline">
             <mat-label>Senha</mat-label>
             <input 
             [formControl]="senha"
@@ -27,6 +28,7 @@
             type="password" 
             matInput 
             placeholder="123">
+            <mat-icon matSuffix>password</mat-icon>
         </mat-form-field>  
         
         <button (click)="logar()" [disabled]="!validaCampos()" class="full-width mat-elevation-z4" mat-stroked-button color="primary">Login</button>
